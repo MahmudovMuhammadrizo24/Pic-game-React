@@ -41,25 +41,7 @@ class GameComponent extends Component {
                 this.handleNewGame();
             }
         }*/
-    /*
-    handleDice = () => {
-        const dices = [dice1, dice2, dice3, dice4, dice5, dice6];
-        const rand = Math.floor(Math.random() * dices.length);
-        const selectedDice = dices[rand];
-        if (this.state.currentPlayer === 1) {
-            this.setState((prevState) => ({
-                selectedDice,
-                player1Point: rand !== 0 ? prevState.player1Point + rand + 1 : 0,
-                currentPlayer: rand !== 0 ? prevState.currentPlayer : 2
-            }));
-        } else {
-            this.setState((prevState) => ({
-                selectedDice,
-                player2Point: rand !== 0 ? prevState.player2Point + rand + 1 : 0,
-                currentPlayer: rand !== 0 ? prevState.currentPlayer : 1
-            }));
-        }
-    };*/
+
     handleDice = () => {
         const { currentPlayer } = this.state;
         const dices = [dice1, dice2, dice3, dice4, dice5, dice6];
@@ -82,24 +64,7 @@ class GameComponent extends Component {
             player2Point: 0,
             currentPlayer: 1
         });
-    /*
-        handleHold = () => {
-            if (this.state.currentPlayer === 1) {
-                this.setState((prevState) => ({
-                    player1Score: prevState.player1Score + prevState.player1Point,
-                    player1Point: 0,
-                    currentPlayer: 2,
-                    selectedDice: ""
-                }));
-            } else {
-                this.setState((prevState) => ({
-                    player2Score: prevState.player2Score + prevState.player2Point,
-                    player2Point: 0,
-                    currentPlayer: 1,
-                    selectedDice: ""
-                }));
-            }
-        };*/
+
     handleHold = () => {
         const { currentPlayer, player1Point, player2Point } = this.state;
 
@@ -117,7 +82,6 @@ class GameComponent extends Component {
         const { player1Score, player2Score } = this.state;
         if (player1Score >= 100) {
             alert(`Winner ${this.state.player1} 🥱`);
-
             this.handleNewGame();
         } else if (player2Score >= 100) {
             alert(`Winner ${this.state.player2} 🥱`);
